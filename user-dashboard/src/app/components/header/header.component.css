@@ -1,0 +1,17 @@
+header {
+    background: red;
+    padding: 16px;
+}
+
+.header-container {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    width: 1200px;
+}
+.search-container input {
+    border: 0;
+    outline: 0;
+    padding: 10px  6px;
+    border-radius: 6px;
+}

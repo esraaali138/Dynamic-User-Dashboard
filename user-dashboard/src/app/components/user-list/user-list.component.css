@@ -1,0 +1,49 @@
+.user-list-container {
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: green;
+  margin: auto;
+  padding: 10px;
+  justify-content: center;
+}
+.user-card {
+  width: 300px;
+  height: 330px;
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+}
+.user-card .user-info {
+  width: 60%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.user-card .user-info img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.user-card .user-info h3 {
+  margin-top: 23px;
+}
+.user-card .user-info p {
+  margin-top: 6px;
+}
+.user-card .user-info button {
+  margin-top: 30px;
+  padding: 12px;
+  width: 150px;
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+  color: #ffffff;
+  background: rgb(55, 6, 100);
+  font-size: 16px;
+  text-transform: capitalize;
+}
