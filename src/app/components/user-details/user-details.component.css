@@ -74,9 +74,3 @@ span {
     max-height: 150px;
   }
 }
-.skeleton{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}

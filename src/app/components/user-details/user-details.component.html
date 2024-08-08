@@ -6,13 +6,16 @@
 <main>
   <div class="skeleton">
     <ngx-skeleton-loader
-    *ngIf="loading"
-    count="5"
-    appearance="circle"
-    [theme]="{ 
-      'background-color': '#c4c4c4',
+      *ngIf="loading"
+      count="5"
+      appearance="circle"
+      [theme]="{ 
+      'background-color': '#e4e4e4',
     }"
-  ></ngx-skeleton-loader>
+    ></ngx-skeleton-loader>
+  </div>
+  <div *ngIf="errorMessage" class="errorMessage">
+    {{ errorMessage }}
   </div>
   <div *ngIf="user" class="user-details">
     <div class="user-img" *ngIf="!loading">
@@ -20,7 +23,7 @@
     </div>
     <div class="user-info">
       <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-      <p> <span>Email :</span> {{ user.email }}</p>
+      <p><span>Email :</span> {{ user.email }}</p>
       <p><span>ID :</span> {{ user.id }}</p>
       <p><span>Role:</span> frontend</p>
     </div>

@@ -1,51 +1,71 @@
+<header>
+  <div class="header-container">
+    <h2>User Dashboard</h2>
+    <input
+      type="text"
+      autocomplete="off"
+      placeholder="Search by ID"
+      [(ngModel)]="searchId"
+      (ngModelChange)="fetchData()"
+    />
+  </div>
+</header>
+
 <section>
-  <app-header></app-header>
   <div class="skeleton">
     <ngx-skeleton-loader
       *ngIf="loading"
       count="5"
       appearance="circle"
       [theme]="{ 
-        'background-color': '#c4c4c4',
+        'background-color': '#e4e4e4',
       }"
     ></ngx-skeleton-loader>
   </div>
+  <div *ngIf="errorMessage" class="errorMessage">
+    {{errorMessage}}
+  </div>
 
-  <div class="user-list-container" *ngIf="!loading">
-    <div
-      *ngFor="let user of users | fiterUser : searchId"
-      class="user-card"
-      [ngClass]="{ 'slide-in': 'animation' }"
-    >
-      <div class="user-info">
-        <img
-          src="{{ user.avatar }}"
-          alt="Logo"
-          alt="User Avatar"
-          class="user-avatar"
-        />
-        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-        <p>ID : {{ user.id }}</p>
-        <button class="btn" (click)="goToUserDetails(user.id)">
-          User Details
-        </button>
+  <div class="parent" *ngIf="!loading">
+    <div *ngIf="filteredUsers">
+      No users found with ID: {{ searchId }}
+    </div>
+    <div *ngIf="!filteredUsers && users.length > 0" class="user-list-container">
+      <div
+        *ngFor="let user of users | filterUser: searchId"
+        class="user-card"
+        [ngClass]="{ 'slide-in': 'animation' }"
+      >
+        <div class="user-info">
+          <img
+            src="{{ user.avatar }}"
+            alt="User Avatar"
+            class="user-avatar"
+          />
+          <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+          <p>ID : {{ user.id }}</p>
+          <button class="btn" (click)="goToUserDetails(user.id)">
+            User Details
+          </button>
+        </div>
       </div>
     </div>
-    <div class="btns">
-      <button
-        class="btn"
-        (click)="clickToPrev()"
-        [class.disabled]="currentPage === 1"
-      >
-        &laquo;
-      </button>
-      <button
-        class="btn"
-        (click)="clickToNext()"
-        [class.disabled]="currentPage === total_pages"
-      >
-        &raquo;
-      </button>
-    </div>
+  </div>
+
+  <div class="btns" *ngIf="users.length > 0 && !searchId">
+    <button
+      class="btn"
+      (click)="clickToPrev()"
+      [class.disabled]="currentPage === 1"
+    >
+      &laquo;
+    </button>
+    <button
+      class="btn"
+      (click)="clickToNext()"
+      [class.disabled]="currentPage === total_pages"
+    >
+      &raquo;
+    </button>
   </div>
 </section>
