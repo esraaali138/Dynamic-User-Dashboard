@@ -1,0 +1,51 @@
+<section>
+  <app-header></app-header>
+  <div class="skeleton">
+    <ngx-skeleton-loader
+      *ngIf="loading"
+      count="5"
+      appearance="circle"
+      [theme]="{ 
+        'background-color': '#c4c4c4',
+      }"
+    ></ngx-skeleton-loader>
+  </div>
+
+  <div class="user-list-container" *ngIf="!loading">
+    <div
+      *ngFor="let user of users | fiterUser : searchId"
+      class="user-card"
+      [ngClass]="{ 'slide-in': 'animation' }"
+    >
+      <div class="user-info">
+        <img
+          src="{{ user.avatar }}"
+          alt="Logo"
+          alt="User Avatar"
+          class="user-avatar"
+        />
+        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        <p>ID : {{ user.id }}</p>
+        <button class="btn" (click)="goToUserDetails(user.id)">
+          User Details
+        </button>
+      </div>
+    </div>
+    <div class="btns">
+      <button
+        class="btn"
+        (click)="clickToPrev()"
+        [class.disabled]="currentPage === 1"
+      >
+        &laquo;
+      </button>
+      <button
+        class="btn"
+        (click)="clickToNext()"
+        [class.disabled]="currentPage === total_pages"
+      >
+        &raquo;
+      </button>
+    </div>
+  </div>
+</section>

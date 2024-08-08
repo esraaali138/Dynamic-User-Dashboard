@@ -1,0 +1,28 @@
+<header>
+  <h2>User Details</h2>
+  <button (click)="goToUsers()">Back</button>
+</header>
+
+<main>
+  <div class="skeleton">
+    <ngx-skeleton-loader
+    *ngIf="loading"
+    count="5"
+    appearance="circle"
+    [theme]="{ 
+      'background-color': '#c4c4c4',
+    }"
+  ></ngx-skeleton-loader>
+  </div>
+  <div *ngIf="user" class="user-details">
+    <div class="user-img" *ngIf="!loading">
+      <img src="{{ user.avatar }}" alt="user" />
+    </div>
+    <div class="user-info">
+      <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+      <p> <span>Email :</span> {{ user.email }}</p>
+      <p><span>ID :</span> {{ user.id }}</p>
+      <p><span>Role:</span> frontend</p>
+    </div>
+  </div>
+</main>
