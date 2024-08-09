@@ -36,6 +36,8 @@ export class UserDetailsComponent implements OnInit {
           this.errorMessage = this.errorService.handleError(error);
         }
       );
+    }else {
+      this.loading = false
     }
   }
   goToUsers() {
