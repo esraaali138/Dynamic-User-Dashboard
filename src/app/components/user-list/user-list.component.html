@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <div class="btns" *ngIf="users.length > 0 && !searchId">
+  <div class="btns" *ngIf="(users | filterUser: searchId).length > 0 && !searchId">
     <button
       class="btn"
       (click)="clickToPrev()"

@@ -1,8 +1,3 @@
-<header>
-  <h2>User Details</h2>
-  <button (click)="goToUsers()">Back</button>
-</header>
-
 <main>
   <div class="skeleton">
     <ngx-skeleton-loader
@@ -26,6 +21,9 @@
       <p><span>Email :</span> {{ user.email }}</p>
       <p><span>ID :</span> {{ user.id }}</p>
       <p><span>Role:</span> frontend</p>
+    </div>
+    <div class="button-container">
+      <button (click)="goToUsers()">Back</button>
     </div>
   </div>
 </main>

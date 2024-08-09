@@ -114,9 +114,6 @@ section .btns button.disabled {
     justify-content: center;
     gap: 20px;
     width: 100%;
-    h2 {
-      font-size: 18px;
-    }
   }
 }
 

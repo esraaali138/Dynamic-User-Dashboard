@@ -1,16 +1,56 @@
-header {
+main {
+  margin-top: 60px;
+}
+
+.user-details {
   display: flex;
-  justify-content: space-between; 
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 50%;
+  background: #fff;
+  margin: 80px auto;
   align-items: center;
-  padding: 10px 30px;
-  margin-top: 18px;
+  height: 350px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
-header h2 {
-  font-size: 24px;
+
+.user-details .user-img {
+  width: 20%;
+  margin-top: -100px;
+}
+
+.user-details .user-img img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.user-details .user-info {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+span {
   font-weight: bold;
-  color: #4f4fa1; 
+  font-size: 20px;
 }
-header button {
+
+p {
+  font-size: 20px;
+}
+
+.button-container {
+  align-self: flex-end;
+  margin-right: 20px; 
+}
+
+button {
   border: 0;
   background-color: #4b49ac;
   color: #fff;
@@ -19,58 +59,40 @@ header button {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
-header button:hover {
+
+button:hover {
   background-color: #3a388a;
-} 
-.user-details {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  width: 60%;
-  background: #ffffff;
-  margin: 80px auto;
-  align-items: center;
-  height: 320px;
-  border-radius: 6px;
-}
-.user-details .user-img {
-  width: 20%;
-}
-.user-details .user-img img {
-  width: 150px;
-  height: 200px;
-}
-.user-details .user-info {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-span {
-  font-weight: bold;
 }
 
 @media (max-width: 1200px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  header button {
-    margin-top: 20px;
-  }
   .user-details {
-    flex-direction: column;
+    width: 70%;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    margin-top: 60px;
   }
-  .user-details .user-img,
-  .user-details .user-info {
+
+  .user-details .user-img {
     width: 100%;
-    text-align: center;
+    margin-top: 0;
   }
+
   .user-details .user-img img {
     max-width: 100px;
-    max-height: 150px;
+    max-height: 100px;
+  }
+
+  .user-details .user-info {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .button-container {
+    align-self: center;
+    margin: 20px 0 0 0;
   }
 }
